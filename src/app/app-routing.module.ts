@@ -5,8 +5,9 @@ import { NotPageFoundComponent } from './not-page-found/not-page-found.component
 import { PagesRoutingModule } from './pages/pages-routing.module';
 
 const routes: Routes = [
-  {path: '**', component: NotPageFoundComponent},
-  {path: '**', redirectTo: '/dashboard', pathMatch: 'full'}
+  {path: '**', redirectTo: '/dashboard', pathMatch: 'full'},
+  {path: '404', component: NotPageFoundComponent},
+  {path: '**', redirectTo: '404'}
   
 ];
 
