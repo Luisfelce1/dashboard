@@ -1,9 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { SidebarService } from 'src/app/service/sidebar.service';
 
-interface MenuItem {
-  texto: string;
-  ruta: string;
-}
 
 @Component({
   selector: 'app-sidebar',
@@ -15,20 +12,19 @@ interface MenuItem {
   `
   ]
 })
-export class SidebarComponent  {
 
-  templateMenu: MenuItem[] = [
-    {
-      texto: 'Dashboard',
-      ruta: ''
-    },
-    {
-      texto: 'Grafica1',
-      ruta: 'grafica1'
-    },
-    {
-      texto: 'Progress',
-      ruta: 'progress'
-    },
-  ]
+export class SidebarComponent implements OnInit  {
+
+  menuItems: any[];
+
+  constructor( private sidebarService: SidebarService) {
+
+    this.menuItems = sidebarService.menu;
+    console.log(this.menuItems);
+  }
+
+  ngOnInit() {
+  }
+
+
 }
